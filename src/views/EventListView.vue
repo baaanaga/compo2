@@ -128,4 +128,26 @@ onMounted(()=> {
 #page-next {
   text-align: right;
 }
+
+.page-size {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.page-size label {
+  font-size: 1rem;
+}
+
+.page-size input {
+  width: 60px;
+  font-size: 1rem;
+  color: #2c3e50;
+  border: 1px solid #2c3e50;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
 </style>
