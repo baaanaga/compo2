@@ -8,27 +8,31 @@ const event = ref<Event | null>(null)
 const props = defineProps({
   id: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 })
 const router = useRouter()
 
-onMounted(()=> {
+onMounted(() => {
   EventService.getEvent(Number(props.id))
-  .then((response) => {
-    event.value = response.data
-  })
-  .catch(() =>{
-    router.push({
-      name: '404-resource-view',
-      params: { resource: 'event'}
+    .then((response) => {
+      event.value = response.data
     })
-  })
+    .catch((error) => {
+      if (error.response && error.response.status === 404) {
+        router.push({
+          name: '404-resource-view',
+          params: { resource: 'event' },
+        })
+      } else {
+        router.push({ name: 'network-error-view' })
+      }
+    })
 })
 </script>
 <template>
   <div v-if="event">
-    <h1>{{  event.title  }}</h1>
+    <h1>{{ event.title }}</h1>
     <nav>
       <RouterLink :to="{ name: 'event-detail-view' }"> Deteils </RouterLink> |
       <RouterLink :to="{ name: 'event-register-view' }"> Register </RouterLink> |
