@@ -58,7 +58,6 @@ onMounted(()=> {
 </script>
 
 <template>
-  <h1>Events For Good</h1>
 
   <div class="page-size">
     <label for="size-input">Events per page:</label>
@@ -78,29 +77,31 @@ onMounted(()=> {
     </datalist>
   </div>
 
-  <div class="events">
-    <div class="event-row" v-for="event in events" :key="event.id">
-      <EventCard :event="event" />
-      <CaOr :event="event" />
-    </div>
-    <div class="pagination">
-      <RouterLink
-        id="page-prev"
-        :to="{ name: 'event-list-view', query: { page: page - 1, size: size } }"
-        rel="prev"
-        v-if="page != 1"
-        >&#60; Prev Page
-      </RouterLink>
+<h1>Events For Good</h1>
 
-      <RouterLink
-      id="page-next"
-        :to="{ name: 'event-list-view', query: { page: page + 1, size: size } }"
-        rel="next"
-        v-if="hasNextPage"
-        >Next Page &#62;
-      </RouterLink>
-    </div>
+<div class="events">  
+  <div class="event-row" v-for="event in events" :key="event.id">
+    <EventCard :event="event" />
+    <CaOr :event="event" />
   </div>
+  <div class="pagination">
+    <RouterLink
+      id="page-prev"
+      :to="{ name: 'event-list-view', query: { page: page - 1, size: size } }"
+      rel="prev"
+      v-if="page != 1"
+      >&#60; Prev Page
+    </RouterLink>
+
+    <RouterLink
+    id="page-next"
+      :to="{ name: 'event-list-view', query: { page: page + 1, size: size } }"
+      rel="next"
+      v-if="hasNextPage"
+      >Next Page &#62;
+    </RouterLink>
+  </div>
+</div>
 </template>
 
 <style scoped>
