@@ -10,7 +10,7 @@ const { message } = storeToRefs(store)
 <template>
   <div class="text-center font-sans text-gray-700 antialiased">
     <header>
-      <div id="flashMessage" v-if="message">
+      <div id="flashMessage" class="animate-fade" v-if="message">
         <h4>{{ message }}</h4>
       </div>
       <div class="wrapper">
@@ -45,7 +45,7 @@ h2 {
   font-size: 20px;
 }
 
-@keyframes yellowFade {
+/* @keyframes yellowFade {
   from {
     background-color: yellow;
   }
@@ -56,5 +56,5 @@ h2 {
 
 #flashMessage {
   animation: yellowFade 3s ease-in-out;
-}
+} */
 </style>
