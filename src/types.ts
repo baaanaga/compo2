@@ -22,3 +22,6 @@ export interface Student {
 export interface MessageState {
   message: string
 }
+export interface EvenState {
+  event: Event | null
+}
