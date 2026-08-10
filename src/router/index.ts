@@ -20,8 +20,8 @@ const router = createRouter({
       name: 'event-list-view',
       component: EventListView,
       props: (route) => ({
-        page: parseInt(route.query.page?.toString() || 1),
-        size: parseInt(route.query.size?.toString() || 3),
+        page: parseInt(route.query.page?.toString() || '1'),
+        size: parseInt(route.query.size?.toString() || '3'),
       }),
     },
     {
