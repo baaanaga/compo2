@@ -41,9 +41,9 @@ function updateSize() {
 }
 
 onMounted(()=> {
+  events.value = null
   watchEffect(() => {
     sizeInput.value = props.size
-    events.value = null
     EventService.getEvents(size.value, page.value)
       .then((response) => {
         events.value = response.data
@@ -79,7 +79,7 @@ onMounted(()=> {
 
 <h1>Events For Good</h1>
 
-<div class="events">  
+<div class="events">
   <div class="event-row" v-for="event in events" :key="event.id">
     <EventCard :event="event" />
     <CaOr :event="event" />
