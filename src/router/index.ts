@@ -60,7 +60,7 @@ const router = createRouter({
         }).catch((error) => {
           if ((error.response && error.response.status === 404)) {
             return {
-              name: '404-resourse-view',
+              name: '404-resource-view',
               params: { resource: 'event'}
             }
           } else {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    resource: string
+    resource?: string
   }>(),
   {
     resource: 'page'
